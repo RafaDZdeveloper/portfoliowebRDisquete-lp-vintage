@@ -96,7 +96,7 @@ const PROJECTS: Proyecto[] = [
     },
     {
         title: "Rdisquete mk II",
-        url: "https://app.netlify.com/projects/rdisquetemk2/overview",
+        url: "https://rdisquetemk2.netlify.app/",
         img: "/rdisquetemk2.jpg",
         desc: "Portfolio frontend moderno con enfoque en UX fluida.",
         video: "/rdisquetemk2.mp4",
