@@ -1,4 +1,4 @@
-# 💿 rdisquete | Portfolio: Sección Conóceme 
+# 💿 rdisquete | Portfolio: Sección Conóceme (Lado B)
 
 ### "De la lente al código: Componiendo interfaces con rigor fotográfico."
 
