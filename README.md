@@ -1,54 +1,50 @@
-# 💿 rdisquete | Portfolio: Sección Conóceme (Lado B)
+# 💿 RDISQUETE | Liner Notes: Portfolio Web
+### "De la lente al código: Prensando interfaces de alta fidelidad."
 
-### "De la lente al código: Componiendo interfaces con rigor fotográfico."
-
-Este repositorio contiene la lógica y el diseño de la sección **Conóceme** de mi portfolio personal. No es solo una página de información; es un ejercicio de arquitectura de componentes donde aplico los principios de diseño que aprendí como fotógrafo profesional al desarrollo Frontend moderno.
-
-
+Este repositorio contiene el **mastering** de mi portfolio personal. Es una pieza de ingeniería frontend donde aplico el rigor visual de mi trayectoria como fotógrafo profesional al desarrollo de software moderno.
 
 ---
 
-## 🚀 El Proyecto
+## 📻 El Concepto: "High Fidelity Code"
 
-Tras desarrollar mis primeras webs reales, decidí refactorizar esta sección para aplicar patrones de diseño de software avanzados, mejorando la mantenibilidad y la escalabilidad del código.
+Bajo la marca **rdisquete**, he construido una experiencia que fusiona lo analógico con lo digital. No es solo una web; es un ejercicio de arquitectura de componentes donde cada "pista" (componente) ha sido ecualizada para ofrecer el mejor rendimiento y estética.
 
-### 🛠️ Tech Stack
-* **Framework:** React + Vite
-* **Lenguaje:** TypeScript (Tipado estricto para evitar errores en tiempo de ejecución)
-* **Estilos:** Tailwind CSS (Diseño basado en utilidades y responsive)
-* **Animaciones:** Framer Motion (Micro-interacciones y transiciones fluidas)
+### 🛠️ Ficha Técnica (Tech Stack)
+* **Framework:** React + Vite (Velocidad de rotación máxima)
+* **Lenguaje:** TypeScript (Tipado estricto para un sonido sin ruido/errores)
+* **Estilos:** Tailwind CSS (Diseño basado en utilidades con grano analógico)
+* **Animaciones:** Framer Motion (Transiciones fluidas a 33 RPM)
 * **Iconos:** React Icons
 
 ---
 
-## 🎨 Decisiones Técnicas y Creativas
+## 🎨 Producción y Decisiones Técnicas
 
-Como desarrollador con formación en artes visuales, mi enfoque en este proyecto ha sido:
+Como desarrollador con ojo de fotógrafo, mi enfoque en este proyecto se basa en la precisión:
 
-1.  **Arquitectura Atómica:** He creado componentes reutilizables como el `TrackItem.tsx` para manejar listas de habilidades, experiencia y formación. Esto reduce la duplicidad de código (DRY) en un 60%.
-2.  **Concepto Narrativo "Cara A / Cara B":** Utilizo una metáfora musical para estructurar mi trayectoria, creando una experiencia de usuario única y memorable.
-3.  **Optimización Visual:** Implementación de texturas dinámicas mediante `TextureOverlay`, logrando un look "grunge/retro" sin sacrificar el rendimiento gracias a la aceleración por hardware de CSS.
-4.  **Accesibilidad (A11y):** Uso de semántica HTML5 pura (`main`, `section`, `ul`, `li`) y roles ARIA para asegurar que la web sea navegable para todos.
-
-
+1. **Arquitectura Atómica:** Uso de componentes reutilizables como `TrackItem.tsx` para mantener el código limpio y escalable (DRY).
+2. **Estética Grunge/Retro:** Implementación de texturas dinámicas (`TextureOverlay`) que aportan profundidad visual sin sacrificar la velocidad de carga.
+3. **Narrativa "Cara A / Cara B":** Una metáfora musical para estructurar mi trayectoria profesional y académica de forma memorable.
+4. **Semántica y Accesibilidad:** Uso de HTML5 puro y roles ARIA para asegurar que la web sea navegable por cualquier "reproductor" (navegador).
 
 ---
 
-## 📈 Lo que he aprendido
+## 📈 Sesiones de Grabación (Aprendizaje)
 Este refactor me ha permitido profundizar en:
-- El flujo de datos a través de **Props** en TypeScript.
-- La gestión de estados de hover y animaciones complejas con **Framer Motion**.
-- La importancia de la **limpieza de código** para facilitar el trabajo en equipo.
+- El flujo de datos avanzado mediante **Props** en TypeScript.
+- La gestión de estados de hover y coreografías visuales con **Framer Motion**.
+- La importancia de la **limpieza de código** y el control de versiones con Git.
 
 ---
 
-## 📬 Contacto
+## 📬 Contacto y Booking
 
-¿Te interesa mi perfil para tu equipo? Hablemos:
+¿Te interesa mi perfil para tu equipo? Hablemos de cómo puedo aportar valor a tu próximo proyecto:
 
-* **Web:** [rdisquete.es](https://rdisquete.es)
+* **Web Oficial:** [rdisquete.es](https://rdisquete.es)
 * **LinkedIn:** [linkedin.com/in/rafael-dorado-zamoro/](https://www.linkedin.com/in/rafael-dorado-zamoro/)
 * **Email:** rafael.doradozamoro@gmail.com
+
 
 ---
 *Hecho con cabezonería y mucho café.*
