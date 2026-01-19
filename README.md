@@ -1,4 +1,4 @@
-# 💿 rdisquete | Portfolio: Sección Conóceme (Refactor)
+# 💿 rdisquete | Portfolio: Sección Conóceme 
 
 ### "De la lente al código: Componiendo interfaces con rigor fotográfico."
 
