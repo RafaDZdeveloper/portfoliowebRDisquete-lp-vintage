@@ -1,6 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import {
-    FaQuoteLeft, FaQuoteRight, FaInstagram, FaWhatsapp, FaLinkedin, FaFileDownload,
+    FaQuoteLeft, FaQuoteRight, FaInstagram, FaWhatsapp, FaLinkedin, FaFileDownload, FaGithub,
     FaRegPlayCircle, FaReact,
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -23,7 +23,17 @@ const socialLinks = {
     instagram: "https://www.instagram.com/rdisquete/",
     whatsapp: "https://wa.me/+34648791998",
     email: "mailto:rafael.doradozamoro@gmail.com",
-    cv: "/images/CV_Rafael_Dorado_Zamoro.pdf"
+    cv: "/images/CV_Rafael_Dorado_Zamoro.pdf",
+    github: "https://github.com/RafaDZdeveloper",
+};
+
+const IconMap: Record<string, React.ElementType> = {
+    instagram: FaInstagram,
+    whatsapp: FaWhatsapp,
+    email: MdEmail,
+    linkedin: FaLinkedin,
+    github: FaGithub,
+    cv: FaFileDownload,
 };
 
 // --- ESTILOS AUXILIARES ---
@@ -31,7 +41,6 @@ const retroWhite = "text-[#cdc69c]";
 const secondaryFont = "font-mono";
 const signatureStyle = { color: RETRO_MAROON };
 
-// Tipado estricto para evitar el error de 'any'
 type BlendMode = "overlay" | "multiply" | "soft-light" | "screen" | "darken" | "normal";
 
 const createTextureStyle = (src: string, opacity = 0.2, blend: BlendMode = 'overlay', zIndex = 1) => ({
@@ -71,7 +80,6 @@ interface TrackItemProps {
     icon?: React.ReactNode;
 }
 
-// --- COMPONENTE DE FILA ---
 const TrackItem = ({ num, title, subtitle, details, extra, color = RETRO_MAROON, isPlatinum, icon }: TrackItemProps) => (
     <motion.div
         className={`relative p-6 transition-all duration-300 border-b group border-current/10 cursor-crosshair 
@@ -79,14 +87,12 @@ const TrackItem = ({ num, title, subtitle, details, extra, color = RETRO_MAROON,
         whileHover={{ x: 15 }}
     >
         <div className="flex items-start">
-            {/* El número cambia de granate a blanco */}
             <span className="mr-6 font-mono text-2xl font-black transition-colors duration-300 group-hover:text-white group-hover:drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" style={{ color }}>
                 {num}.
             </span>
 
             <div className="flex-grow">
                 <div className="flex items-center gap-3">
-                    {/* El título principal a blanco con sombra suave */}
                     <h4 className="text-xl font-bold leading-tight tracking-tight uppercase md:text-2xl transition-colors duration-300 group-hover:text-white group-hover:drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
                         {title}
                     </h4>
@@ -97,19 +103,16 @@ const TrackItem = ({ num, title, subtitle, details, extra, color = RETRO_MAROON,
                     )}
                 </div>
 
-                {/* Subtítulo: se vuelve blanco con menos opacidad */}
                 {subtitle && (
                     <p className="mb-2 font-mono text-sm italic transition-all duration-300 opacity-70 group-hover:text-white/90 group-hover:opacity-100" style={{ color: isPlatinum ? color : undefined }}>
                         {subtitle}
                     </p>
                 )}
 
-                {/* Detalles: texto principal a blanco */}
                 <p className="mb-1 font-mono text-sm leading-relaxed md:text-base opacity-90 transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
                     {details}
                 </p>
 
-                {/* Extra: blanco muy sutil */}
                 {extra && (
                     <p className="pl-3 mt-2 font-sans text-xs italic transition-all duration-300 border-l-2 md:text-sm opacity-60 border-current/20 group-hover:text-white/60 group-hover:border-white/40">
                         {extra}
@@ -117,13 +120,11 @@ const TrackItem = ({ num, title, subtitle, details, extra, color = RETRO_MAROON,
                 )}
             </div>
 
-            {/* Indicador lateral: ahora en blanco para que combine */}
             <div className="absolute transition-opacity -translate-y-1/2 opacity-0 group-hover:opacity-100 right-4 top-1/2">
                 <div className="w-1 h-12 bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)] rounded-full animate-pulse" />
             </div>
         </div>
 
-        {/* La línea de progreso inferior ahora se ilumina en blanco */}
         <motion.div
             className="absolute bottom-0 left-0 h-[2px] w-full origin-left"
             style={{ backgroundColor: isPlatinum ? color : '#ffffff' }}
@@ -134,12 +135,9 @@ const TrackItem = ({ num, title, subtitle, details, extra, color = RETRO_MAROON,
     </motion.div>
 );
 
-// --- COMPONENTE PRINCIPAL ---
 export default function Conoceme() {
     return (
-
         <main className="w-full bg-[#171717]">
-            {/* --- SECCIÓN INTRO (INTACTA) --- */}
             <div className={`w-full`}>
                 <motion.section
                     className={`relative w-full min-h-screen border-4 box-border flex flex-col justify-between select-none ${retroWhite}`}
@@ -147,7 +145,7 @@ export default function Conoceme() {
                         backgroundColor: RETRO_DARK,
                         borderColor: RETRO_CREAM,
                         borderStyle: 'solid',
-                        willChange: 'transform, opacity' as const
+                        willChange: 'transform, opacity'
                     }}
                     initial="hidden"
                     whileInView="visible"
@@ -246,12 +244,7 @@ export default function Conoceme() {
 
                         <div className="flex justify-center w-full space-x-6 text-2xl md:space-x-8 md:text-3xl" style={{ color: RETRO_CREAM }}>
                             {Object.entries(socialLinks).map(([key, url], index) => {
-                                const IconComponent =
-                                    key === 'instagram' ? FaInstagram :
-                                        key === 'whatsapp' ? FaWhatsapp :
-                                            key === 'email' ? MdEmail :
-                                                key === 'linkedin' ? FaLinkedin :
-                                                    key === 'cv' ? FaFileDownload : null;
+                                const IconComponent = IconMap[key];
                                 if (!IconComponent) return null;
                                 return (
                                     <motion.a
@@ -310,7 +303,6 @@ export default function Conoceme() {
                         <h2 className="text-6xl font-black tracking-tighter uppercase md:text-8xl font-display-impact">TRACKLIST: Skills</h2>
                     </div>
 
-                    {/* Aquí la Grid maneja automáticamente el tamaño de React y Tailwind */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-4">
                         {skillTracks.map(s => (
                             <TrackItem
@@ -329,12 +321,10 @@ export default function Conoceme() {
 
             {/* --- CARA A: EXPERIENCIA --- */}
             <section className="relative py-32 bg-[#cdc69c] text-[#171717] px-6 overflow-hidden">
-                {/* Textura de papel viejo combinada con un ligero grano */}
                 <div className="absolute inset-0 opacity-25 pointer-events-none mix-blend-multiply"
                     style={{ backgroundImage: `url(${TEXTURE_4})`, backgroundSize: 'cover' }} />
 
                 <div className="relative z-10 max-w-6xl mx-auto">
-                    {/* Título decorativo gigante de fondo */}
                     <h2 className="absolute -top-16 -left-10 text-[12rem] md:text-[20rem] font-black text-[#8e2b27]/5 font-display-impact select-none uppercase leading-none">
                         A SIDE
                     </h2>
@@ -366,6 +356,7 @@ export default function Conoceme() {
                 </div>
             </section>
 
+            {/* --- CARA B: FORMACIÓN --- */}
             <section className="relative py-32 bg-[#8e2b27] text-[#cdc69c] px-6 overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-overlay"
                     style={{ backgroundImage: `url(${TEXTURE_5})`, backgroundSize: 'cover' }} />
@@ -403,10 +394,10 @@ export default function Conoceme() {
                 </div>
             </section>
         </main>
-
     );
 }
 
+// --- DATA ---
 const skillTracks = [
     {
         num: '01',

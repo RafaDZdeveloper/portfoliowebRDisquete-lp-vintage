@@ -6,7 +6,8 @@ import {
   FaInstagram,
   FaEnvelope,
   FaWhatsapp,
-  FaFileDownload
+  FaFileDownload,
+  FaGithub
 } from "react-icons/fa";
 import { useForm } from "@formspree/react";
 
@@ -21,7 +22,8 @@ const socialLinks = [
   { icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me/+34648791998" },
   { icon: FaEnvelope, label: "Email", href: "mailto:rafael.doradozamoro@gmail.com" },
   { icon: FaLinkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/rafael-dorado-zamoro/" },
-  { icon: FaFileDownload, href: "/images/CV_Rafael_Dorado_Zamoro.pdf", label: "Descargar CV", download: true }
+  { icon: FaFileDownload, href: "/images/CV_Rafael_Dorado_Zamoro.pdf", label: "Descargar CV", download: true },
+  {icon: FaGithub, label:"https://github.com/RafaDZdeveloper"}
 ];
 
 const sectionVariants: Variants = {

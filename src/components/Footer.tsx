@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaInstagram, FaLinkedin, FaWhatsapp, FaFileDownload } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaWhatsapp, FaFileDownload, FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 const BG = "#171717";
@@ -52,6 +52,7 @@ export default function Footer() {
           { icon: <MdEmail />, href: "mailto:rafael.doradozamoro@gmail.com" },
           { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/rafael-dorado-zamoro/" },
           { icon: <FaFileDownload />, href: "/images/CV_Rafael_Dorado_Zamoro.pdf", download: true },
+          {icon: <FaGithub/>, href:"https://github.com/RafaDZdeveloper"}
         ].map((link, index) => (
           <a
             key={index}
