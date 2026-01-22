@@ -23,6 +23,16 @@ const projects = [
     video: "/Nor3xtremeHover.mp4",
     tech: ["React, Vite, Tailwind CSS"]
   },
+
+  {
+    title: "Matter & Sound",
+    url: "https://mattersoundrdisquete.netlify.app/",
+    img: "/MatterSound.jpg",
+    desc: "Estación de visualización generativa que transforma ondas mecánicas en materia digital mediante FFT y Web Audio API.",
+    video: "/MattersoundHover.mp4",
+    tech: ["React", "TypeScript", "Web Audio API", "HTML5 Canvas", "Tailwind CSS"]
+  },
+
   {
     title: "Armario Escénico",
     url: "https://armarioescenico.netlify.app/",

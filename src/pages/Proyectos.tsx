@@ -57,6 +57,17 @@ const PROJECTS: Proyecto[] = [
         techStack: "React, TypeScript, Tailwind CSS",
         pressingType: 'Bootleg'
     },
+
+    {
+        title: "Matter & Sound",
+        url: "https://mattersoundrdisquete.netlify.app/",
+        img: "/MatterSound.jpg",
+        desc: "Estación de visualización generativa que transforma ondas mecánicas en materia digital mediante FFT y Web Audio API.",
+        video: "/MattersoundHover.mp4",
+        techStack: "React, TypeScript, Web Audio API, HTML5 Canvas, Tailwind CSS",
+         pressingType: 'Bootleg'
+      },
+
     {
         title: "ED Movil",
         url: "https://edmovil.netlify.app",
