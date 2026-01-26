@@ -7,6 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="#171717" />
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GOOGLE_ANALYTICS_ID%"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', '%VITE_GOOGLE_ANALYTICS_ID%');
+    </script>
+    
     <link 
       rel="preload" 
       href="/images/texturas/abstract-crumpled-black-paper-texture-background-f-2025-02-22-04-38-59-utc.jpg" 
@@ -40,7 +49,11 @@
         background-attachment: fixed;
         background-size: cover;
       }
-      #root { min-height: 100vh; }
+      #root { 
+        min-height: 100vh; 
+        position: relative; 
+        display: block;
+      }
     </style>
   </head>
 

@@ -9,6 +9,7 @@ import {
   FaFileDownload,
   FaGithub
 } from "react-icons/fa";
+import { ArrowRight } from "lucide-react"; 
 import { useForm } from "@formspree/react";
 
 const ACCENT_COLOR = "#681f1d";
@@ -151,16 +152,29 @@ export default function Contacto() {
                   className="w-full bg-transparent py-1 font-mono text-base outline-none min-h-[100px] resize-none text-black placeholder:opacity-20" />
               </div>
 
-              <div className="flex flex-col gap-2">
-                <motion.button
-                  whileHover={{ scale: 1.02, backgroundColor: "#171717" }}
-                  whileTap={{ scale: 0.98 }}
+              <div className="flex justify-start mt-4">
+                <button
                   type="submit"
                   disabled={state.submitting}
-                  className="mt-4 bg-[#8e2b27] text-white font-black py-5 tracking-[0.3em] uppercase text-xs shadow-[12px_12px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all active:translate-x-1 active:translate-y-1"
+                  className="flex items-center gap-4 group w-fit disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {state.submitting ? "SENDING..." : "PUSH_TO_START"}
-                </motion.button>
+                  <motion.div 
+                    whileHover={!state.submitting ? { x: 10 } : {}}
+                    className="flex items-center gap-4"
+                  >
+                    <div className="flex items-center justify-center w-12 h-12 transition-all duration-300 border-2 border-black rounded-full group-hover:bg-black">
+                      <ArrowRight className="w-6 h-6 text-black transition-colors group-hover:text-white" />
+                    </div>
+                    <div className="flex flex-col text-left">
+                      <span className="font-mono text-[10px] font-black uppercase tracking-[0.3em] text-[#8e2b27]">
+                        {state.submitting ? "Sending Signal..." : "Ready to Send?"}
+                      </span>
+                      <span className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-black group-hover:text-[#8e2b27] transition-colors">
+                        {state.submitting ? "ENVIANDO..." : "PUSH_TO_START"}
+                      </span>
+                    </div>
+                  </motion.div>
+                </button>
               </div>
             </form>
           </div>

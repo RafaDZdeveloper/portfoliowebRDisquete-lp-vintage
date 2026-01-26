@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react"; 
 
 const textReveal: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -65,7 +66,7 @@ export default function SobreMi() {
             </div>
             
             <div className="absolute -bottom-4 -right-4 bg-black text-[#cdc69c] px-4 py-2 font-mono text-[10px] font-black uppercase border border-[#cdc69c]">
-              R_DORADO // RDISQUETE
+              RAFA DORADO // RDISQUETE
             </div>
           </div>
         </motion.div>
@@ -93,29 +94,44 @@ export default function SobreMi() {
             transition={{ duration: 0.6, delay: 0.5 }}
           />
 
-          <motion.div
-            className="max-w-xl font-mono text-sm leading-relaxed md:text-lg"
-            variants={textReveal}
-          >
-            <p>
-              Soy <strong>Frontend Developer</strong>. Mi código huye de lo <strong>genérico y aburrido</strong>.
-            </p>
-            <p className="mt-4">
-              Me especializo en <strong>experiencias de usuario</strong> que se salen del molde: interfaces <strong>jugadas, robustas</strong> y con ese <strong>toque diferenciador</strong>.
-            </p>
-            
-            <p className="mt-6 font-bold text-black bg-[#cdc69c] inline-block px-2 uppercase text-xs md:text-sm">
-              Si buscabas algo diferente, aquí está.
-            </p>
-          </motion.div>
+<motion.div
+  className="max-w-xl font-mono text-sm leading-relaxed md:text-lg"
+  variants={textReveal}
+>
+  <p>
+    No solo escribo código; <strong>masterizo experiencias</strong>. Mi enfoque huye de los layouts predecibles y las interfaces <strong>sin alma</strong>.
+  </p>
+  <p className="mt-4">
+    Me especializo en transformar ideas en <strong>interfaces de alto impacto</strong>: visualmente jugadas, técnicamente <strong>robustas</strong> y con ritmo propio.
+  </p>
+  
+  <p className="mt-6 font-bold text-black bg-[#cdc69c] inline-block px-2 uppercase text-xs md:text-sm">
+    LEVEL: UNCONVENTIONAL_CODE
+  </p>
+</motion.div>
           
+         
           <motion.div className="mt-8 md:mt-12" variants={textReveal}>
             <Link
-              to="/contacto"
-              className="group relative inline-flex items-center gap-6 px-8 md:px-10 py-3 md:py-4 overflow-hidden border-2 border-black bg-black text-[#cdc69c] font-black tracking-[0.3em] uppercase transition-all hover:bg-[#cdc69c] hover:text-black shadow-xl active:scale-95"
+              to="/Feedback"
+              className="flex items-center gap-4 group w-fit"
             >
-              <span className="relative z-10 text-inherit">¿HABLAMOS?</span>
-              <div className="absolute inset-0 bg-[#cdc69c] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              <motion.div 
+                whileHover={{ x: 10 }}
+                className="flex items-center gap-4 cursor-pointer"
+              >
+                <div className="flex items-center justify-center w-12 h-12 transition-all duration-300 border-2 border-black rounded-full group-hover:bg-black">
+                  <ArrowRight className="w-6 h-6 text-black group-hover:text-[#cdc69c] transition-colors" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-mono text-[10px] font-black uppercase tracking-[0.3em] text-[#cdc69c]">
+                    Let's connect
+                  </span>
+                  <span className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-[#cdc69c] group-hover:text-black transition-colors">
+                    ¿HABLAMOS?
+                  </span>
+                </div>
+              </motion.div>
             </Link>
           </motion.div>
         </div>

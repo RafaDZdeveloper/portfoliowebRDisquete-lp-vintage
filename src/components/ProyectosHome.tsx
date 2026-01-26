@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play } from "lucide-react";
+import { Play, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 // --- INTERFACES ---
 interface Project {
@@ -45,8 +46,8 @@ const ProjectTrack = ({ project, index, onHoverStart }: ProjectTrackProps) => {
 };
 
 export default function ProyectosHome({ projects }: { projects: Project[] }) {
-  
   const [hoveredProject, setHoveredProject] = useState<Project | null>(projects[0] || null);
+  const navigate = useNavigate(); 
 
   return (
     <section className="relative flex flex-col items-center justify-center w-full min-h-screen py-16 overflow-hidden lg:flex-row lg:py-0 bg-neutral-950 lg:overflow-visible">
@@ -69,7 +70,7 @@ export default function ProyectosHome({ projects }: { projects: Project[] }) {
             </h2>
           </header>
 
-          <div className="flex-grow pr-4 custom-scrollbar lg:overflow-y-auto lg:max-h-[55vh] mb-8 lg:mb-0">
+          <div className="flex-grow pr-4 custom-scrollbar lg:overflow-y-auto lg:max-h-[50vh] mb-4">
             {projects?.map((project, index) => (
               <ProjectTrack
                 key={index}
@@ -79,6 +80,19 @@ export default function ProyectosHome({ projects }: { projects: Project[] }) {
               />
             ))}
           </div>
+
+          <motion.button
+            whileHover={{ x: 10 }}
+            className="flex items-center gap-3 py-4 mt-4 group w-fit"
+            onClick={() => navigate('/catalog')}
+          >
+            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-[#8e2b27] group-hover:bg-[#8e2b27] transition-all duration-300">
+              <ArrowRight className="w-5 h-5 text-[#8e2b27] group-hover:text-[#cdc69c] transition-colors" />
+            </div>
+            <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-[#cdc69c] group-hover:text-white transition-colors">
+              View Full Discography
+            </span>
+          </motion.button>
 
           <footer className="mt-auto pt-6 border-t border-[#cdc69c]/10 font-mono text-[10px] uppercase opacity-30 flex justify-between">
             <span>© 2026 RDisquete Records</span>

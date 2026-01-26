@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
@@ -11,6 +11,18 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const playSfx = useCallback((fileName: string, volume = 0.1) => {
+    const audio = new Audio(`/sounds/${fileName}.mp3`);
+    audio.volume = volume;
+    audio.play().catch(() => {});
+  }, []);
+
+
+  useEffect(() => {
+    playSfx('relay', 0.12);
+    setMenuOpen(false);
+  }, [location.pathname, playSfx]);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -21,10 +33,6 @@ export default function Header() {
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", menuOpen);
   }, [menuOpen]);
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
 
   return (
     <>
@@ -39,7 +47,10 @@ export default function Header() {
           }}
         >
           <button
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setMenuOpen(false);
+              playSfx('relay', 0.2);
+            }}
             className="absolute p-2 text-4xl border-4 top-4 right-4"
             style={{ borderColor: RETRO_CREAM }}
           >
@@ -47,10 +58,30 @@ export default function Header() {
           </button>
 
           <ul className="flex flex-col gap-8 text-4xl font-black text-center uppercase">
-            {/* Los 'to' deben coincidir con App.tsx */}
-            <NavLink to="/biography" active={location.pathname === "/biography"}>Biography</NavLink>
-            <NavLink to="/catalog" active={location.pathname === "/catalog"}>Catalog</NavLink>
-            <NavLink to="/feedback" active={location.pathname === "/feedback"}>Feedback</NavLink>
+            <NavLink 
+              to="/biography" 
+              active={location.pathname === "/biography"}
+              onClick={() => playSfx('relay', 0.15)}
+              onHover={() => playSfx('switch', 0.1)} 
+            >
+              Biography
+            </NavLink>
+            <NavLink 
+              to="/catalog" 
+              active={location.pathname === "/catalog"}
+              onClick={() => playSfx('relay', 0.15)}
+              onHover={() => playSfx('switch', 0.1)} 
+            >
+              Catalog
+            </NavLink>
+            <NavLink 
+              to="/feedback" 
+              active={location.pathname === "/feedback"}
+              onClick={() => playSfx('relay', 0.15)}
+              onHover={() => playSfx('switch', 0.1)}
+            >
+              Feedback
+            </NavLink>
           </ul>
         </div>
       )}
@@ -66,9 +97,12 @@ export default function Header() {
       >
         <div className="relative flex items-center justify-between h-20 px-4 mx-auto max-w-7xl md:px-8">
 
-          {/* Hamburguesa */}
+          {/* Icono Hamburguesa */}
           <button
-            onClick={() => setMenuOpen(true)}
+            onClick={() => {
+              setMenuOpen(true);
+              playSfx('relay', 0.2);
+            }}
             className="text-3xl md:hidden"
             style={{ color: RETRO_MAROON }}
           >
@@ -77,6 +111,8 @@ export default function Header() {
 
           <Link
             to="/"
+            onClick={() => playSfx('relay', 0.1)}
+            onMouseEnter={() => playSfx('switch', 0.1)} 
             className="absolute transition-transform -translate-x-1/2 left-1/2 hover:scale-150"
           >
             <img
@@ -86,11 +122,32 @@ export default function Header() {
             />
           </Link>
 
-          {/* Menú de Navegación Escritorio */}
+          {/* Navegación Escritorio */}
           <div className="items-center hidden gap-6 ml-auto md:flex">
-            <NavLink to="/biography" active={location.pathname === "/biography"}>Biography</NavLink>
-            <NavLink to="/catalog" active={location.pathname === "/catalog"}>Catalog</NavLink>
-            <NavLink to="/feedback" active={location.pathname === "/feedback"}>Feedback</NavLink>
+            <NavLink 
+              to="/biography" 
+              active={location.pathname === "/biography"}
+              onClick={() => playSfx('relay', 0.15)}
+              onHover={() => playSfx('switch', 0.1)} 
+            >
+              Biography
+            </NavLink>
+            <NavLink 
+              to="/catalog" 
+              active={location.pathname === "/catalog"}
+              onClick={() => playSfx('relay', 0.15)}
+              onHover={() => playSfx('switch', 0.1)} 
+            >
+              Catalog
+            </NavLink>
+            <NavLink 
+              to="/feedback" 
+              active={location.pathname === "/feedback"}
+              onClick={() => playSfx('relay', 0.15)}
+              onHover={() => playSfx('switch', 0.1)} 
+            >
+              Feedback
+            </NavLink>
           </div>
         </div>
       </header>
@@ -102,12 +159,16 @@ interface NavLinkProps {
   to: string;
   active: boolean;
   children: ReactNode;
+  onClick?: () => void;
+  onHover?: () => void;
 }
 
-function NavLink({ to, active, children }: NavLinkProps) {
+function NavLink({ to, active, children, onClick, onHover }: NavLinkProps) {
   return (
     <Link
       to={to}
+      onClick={onClick}
+      onMouseEnter={onHover}
       className="relative px-3 py-2 uppercase transition-transform duration-200 hover:scale-110" 
       style={{ 
         fontFamily: "'Montserrat', sans-serif",

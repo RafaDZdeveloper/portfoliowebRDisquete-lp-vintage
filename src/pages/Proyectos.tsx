@@ -2,6 +2,7 @@ import { useMemo, useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaExternalLinkAlt, FaTimes } from "react-icons/fa";
+import { ArrowRight } from "lucide-react"; // Importamos la flecha
 
 // --- CONFIGURACIÓN DE ESTILOS ---
 const COLORS = {
@@ -48,7 +49,8 @@ const PROJECTS: Proyecto[] = [
         video: "/Nor3xtremeHover.mp4",
         techStack: "React, Vite, Tailwind CSS",
         pressingType: 'First'
-    }, {
+    },
+    {
         title: "Armario Escénico",
         url: "https://armarioescenico.netlify.app/",
         img: "/sambrona.jpg",
@@ -57,7 +59,6 @@ const PROJECTS: Proyecto[] = [
         techStack: "React, TypeScript, Tailwind CSS",
         pressingType: 'Bootleg'
     },
-
     {
         title: "Matter & Sound",
         url: "https://mattersoundrdisquete.netlify.app/",
@@ -67,7 +68,6 @@ const PROJECTS: Proyecto[] = [
         techStack: "React, TypeScript, Web Audio API, HTML5 Canvas, Tailwind CSS",
          pressingType: 'Bootleg'
       },
-
     {
         title: "ED Movil",
         url: "https://edmovil.netlify.app",
@@ -77,7 +77,6 @@ const PROJECTS: Proyecto[] = [
         techStack: "React, TypeScript, Tailwind CSS",
         pressingType: 'First'
     },
-   
     {
         title: "Web RDisquete Photo",
         url: "https://rdisquetephoto.netlify.app/",
@@ -196,7 +195,6 @@ const PROJECTS: Proyecto[] = [
         pressingType: 'Bootleg'
     }
 ];
-
 
 const cardVariants: Variants = {
     initial: { opacity: 0, y: 20 },
@@ -352,16 +350,34 @@ export default function Proyectos() {
             </section>
 
             <section className="px-6 pb-40 mx-auto max-w-7xl">
-                {/* Grid adaptativo para móvil */}
                 <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 xl:gap-14">
                     {PROJECTS.map((proj, idx) => (
                         <ProjectCard key={proj.title} project={proj} index={idx} onOpen={setSelected} isFeatured={idx === 0} />
                     ))}
                 </div>
 
+                {/* --- BOTÓN REPLICADO DE SOBRE MI --- */}
                 <div className="flex flex-col items-center mt-32">
-                    <Link to="/contacto" className="px-16 py-6 bg-[#8e2b27] text-[#cdc69c] text-sm font-black uppercase tracking-[0.5em] hover:bg-black transition-all shadow-xl">
-                        ¿HACEMOS UN NUEVO LANZAMIENTO?
+                    <Link
+                        to="/Feedback"
+                        className="flex items-center gap-4 group w-fit"
+                    >
+                        <motion.div 
+                            whileHover={{ x: 10 }}
+                            className="flex items-center gap-4 cursor-pointer"
+                        >
+                            <div className="flex items-center justify-center w-12 h-12 transition-all duration-300 border-2 border-black rounded-full group-hover:bg-black">
+                                <ArrowRight className="w-6 h-6 text-black group-hover:text-[#cdc69c] transition-colors" />
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="font-mono text-[10px] font-black uppercase tracking-[0.3em] text-black">
+                                    Let's connect
+                                </span>
+                                <span className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-[#8e2b27] group-hover:text-black transition-colors">
+                                ¿GRABAMOS EL PRÓXIMO HIT?
+                                </span>
+                            </div>
+                        </motion.div>
                     </Link>
                 </div>
             </section>
